@@ -1,0 +1,91 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+*::after {
+    display: table;
+    content: '';
+    clear: both;
+}
+
+body {
+    min-width: 900px;
+}
+
+label {
+    display: inline-block;
+    height: 20px;
+    margin: 10px;
+}
+
+label span {
+    display: inline-block;
+    height: 20px;
+    line-height: 20px;
+    vertical-align: middle
+}
+
+label input {
+    height: 20px;
+}
+
+label input[type=checkbox] {
+    border: 1px solid #DDD;
+    width: 18px;
+    height: 18px;
+    vertical-align: middle;
+}
+
+.filter {
+    width: 100%;
+    padding: 20px 0;
+    border-bottom: 1px solid #DDD
+}
+
+.filter label {
+    float: left;
+}
+
+.content {
+    padding: 30px 0;
+}
+
+.content .item-list {
+    margin: 10px auto
+}
+
+.content .item-title {
+    height: 30px;
+    font-weight: bold;
+}
+
+.content .item-title div {
+    float: left;
+    width: 100px;
+    text-align: left;
+    margin: 0 10px;
+    line-height: 30px;
+}
+
+.content .item-list h4 {
+    padding: 10px;
+    color: #F00;
+}
+
+.content .item-list .item div {
+    width: 100px;
+    text-align: left;
+    float: left;
+    line-height: 30px;
+    margin: 0 10px;
+}
+
+.content .item-list .item label {
+    width: 100px;
+    text-align: left;
+    float: left;
+    line-height: 30px;
+    margin: 0 10px;
+}

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html ng-app='APP'>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src='angular.min.js'></script>
+    <script src='app.js'></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body ng-controller="indexCtrl">
+    <div class="filter">
+        <label for="search">
+            <span>搜索商品:</span>
+            <input type="search" id="search" ng-model='filter.keyWord'>
+        </label>
+
+        <label for="check">
+            <input type="checkbox" id="check" ng-model="filter.saleDone">
+            <span>隐藏已卖完的商品</span>
+        </label>
+    </div>
+    <div class="content">
+        <div class="item-title">
+            <div class="name">名称</div>
+            <div class="price">单价&yen;</div>
+            <div class="stock">库存</div>
+            <div class="sale">卖出</div>
+            <div class="left">剩余</div>
+            <div class="sale">销售额</div>
+        </div>
+        <div class="item-list" ng-repeat='itemList in products track by $index'>
+            <h4>{{itemList.title}}</h4>
+            <div class="item" ng-repeat='item in itemList.data track by $index' ng-if='item.title.indexOf(filter.keyWord)>=0 && (!filter.saleDone || (filter.saleDone && item.stock!=item.sale))'>
+                <div class="name">{{item.title}}</div>
+                <div class="price">{{item.price}}/{{item.unit}}</div>
+                <div class="stock">{{item.stock}}{{item.unit}}</div>
+                <label class="sale">
+                    <input type="number" ng-model='item.sale' min='0' max='{{item.stock}}'>
+                </label>
+                <div class="left">
+                    <span>{{item.stock-item.sale}}{{item.unit}}</span>
+                </div>
+                <label class="sale">
+                    <span>{{item.sale*item.price}}</span>
+                </label>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>
